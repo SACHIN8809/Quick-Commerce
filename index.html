@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMI New Delhi - Quick Commerce Study</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --left-color: #d93025;
+            --right-color: #188038;
+            --bg-yellow: #fefce8;
+            --border-yellow: #fde047;
+            --slate: #334155;
+            --imi-maroon: #800000;
+        }
+
+        body { font-family: -apple-system, system-ui, sans-serif; background: #f1f5f9; padding: 15px; margin: 0; color: #1e293b; line-height: 1.6; }
+        .container { max-width: 850px; margin: 0 auto; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        
+        .header-section { text-align: center; margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 15px; }
+        .header-section h1 { color: var(--imi-maroon); margin-bottom: 5px; font-size: 1.8rem; }
+        .header-section p { font-weight: 600; color: #64748b; margin-top: 0; }
+
+        .welcome-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; margin-bottom: 25px; font-size: 0.95rem; }
+        .scale-inline { background: white; border: 1px dashed #cbd5e1; padding: 10px; margin-top: 15px; text-align: center; font-weight: 700; font-size: 0.85rem; color: var(--primary); border-radius: 8px; }
+
+        .objective-box { background: #eff6ff; padding: 12px; border-radius: 8px; border-left: 4px solid var(--primary); margin-bottom: 25px; font-size: 0.9rem; font-style: italic; color: #1e40af; }
+
+        .def-link { text-decoration: underline dotted var(--slate); cursor: help; transition: color 0.2s; padding: 2px 4px; border-radius: 4px; font-weight: 700; }
+        .def-link:hover { color: var(--primary); background: #f1f5f9; }
+
+        h2 { font-size: 1.1rem; color: var(--primary); border-left: 5px solid var(--primary); padding-left: 12px; margin-top: 35px; margin-bottom: 15px; background: #f8fafc; padding-top: 5px; padding-bottom: 5px; }
+
+        .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 25px; background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; }
+        .input-group { display: flex; flex-direction: column; font-size: 12px; font-weight: 600; }
+        input[type="text"], input[type="number"] { padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; margin-top: 5px; font-size: 0.95rem; }
+
+        .comparison-row { margin-bottom: 40px; border-bottom: 1px solid #f1f5f9; padding-bottom: 20px; }
+        .label-container { display: flex; justify-content: space-between; width: 100%; margin-bottom: 12px; font-size: 14px; }
+        .left-label { color: var(--left-color); text-align: left; flex: 1; padding-right: 10px; }
+        .right-label { color: var(--right-color); text-align: right; flex: 1; padding-left: 10px; }
+
+        .scale-grid { display: flex; justify-content: space-between; align-items: center; background: var(--bg-yellow); padding: 10px 5px; border-radius: 50px; border: 1px solid var(--border-yellow); }
+        .option { display: flex; flex-direction: column; align-items: center; flex: 1; }
+        .option span { font-size: 10px; font-weight: 800; color: #71717a; margin-bottom: 4px; }
+        .option input { margin: 0; width: 20px; height: 20px; cursor: pointer; accent-color: var(--primary); }
+        .center-mark { background: #facc15; padding: 1px 5px; border-radius: 4px; }
+
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(2px); }
+        .modal-content { background-color: white; margin: 10% auto; padding: 25px; border-radius: 12px; width: 85%; max-width: 500px; position: relative; animation: slideIn 0.2s ease-out; }
+        @keyframes slideIn { from { transform: translateY(-10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .close-btn { position: absolute; right: 15px; top: 10px; font-size: 24px; font-weight: bold; cursor: pointer; color: #94a3b8; }
+        
+        .btn-submit { width: 100%; padding: 18px; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: bold; cursor: pointer; background: var(--primary); color: white; margin-top: 30px; transition: 0.2s; }
+        .btn-submit:hover { background: #1d4ed8; }
+
+        @media (max-width: 600px) { .profile-grid { grid-template-columns: 1fr; } .label-container { font-size: 12px; } .scale-inline { font-size: 0.75rem; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-section">
+        <h1>Welcome!</h1>
+        <p>Strategic Determinants of Consumer Retention in Quick Commerce</p>
+    </div>
+    
+    <div class="welcome-box">
+        We are from <strong>IMI New Delhi</strong> conducting a study on consumer behavior in the Quick Commerce sector (10–30 minute delivery apps). 
+        Specifically, we want to know which factors you believe are the most critical drivers of long-term consumer retention.
+        <br><br>
+        <strong>How to answer:</strong> This questionnaire asks you to compare factors in pairs. Between two options, which one is more important?
+        
+        <div class="scale-inline">
+            1: Equal Importance | 3: Moderate | 5: Strong | 7: Very Strong | 9: Extreme Importance
+        </div>
+        <br>
+        <small><em>Rest assured, all information is strictly for academic research. Individual responses remain confidential.</em></small>
+    </div>
+
+    <div class="objective-box">
+        <strong>Expert Tip:</strong> Click any factor (e.g., <span style="text-decoration:underline">Contextual Integration</span>) to view its full definition.
+    </div>
+
+    <form id="ahpForm">
+        <div class="profile-grid">
+            <div class="input-group"><label>Full Name</label><input type="text" name="Name" required></div>
+            <div class="input-group"><label>Organisation</label><input type="text" name="Organisation" required></div>
+            <div class="input-group"><label>Designation</label><input type="text" name="Designation" required></div>
+            <div class="input-group"><label>Experience (Years)</label><input type="number" name="Experience" required></div>
+        </div>
+
+        <h2>1. Main Criteria Comparison</h2>
+        
+        <div class="comparison-row">
+            <div class="label-container">
+                <span class="left-label def-link" onclick="openModal('Consumer Adaptation')">Consumer Adaptation</span>
+                <span class="right-label def-link" onclick="openModal('Consumer Engagement')">Consumer Engagement</span>
+            </div>
+            <div class="scale-grid">
+                <label class="option"><span>9</span><input type="radio" name="Main1" value="-9" required></label>
+                <label class="option"><span>7</span><input type="radio" name="Main1" value="-7"></label>
+                <label class="option"><span>5</span><input type="radio" name="Main1" value="-5"></label>
+                <label class="option"><span>3</span><input type="radio" name="Main1" value="-3"></label>
+                <label class="option"><span class="center-mark">1</span><input type="radio" name="Main1" value="0"></label>
+                <label class="option"><span>3</span><input type="radio" name="Main1" value="3"></label>
+                <label class="option"><span>5</span><input type="radio" name="Main1" value="5"></label>
+                <label class="option"><span>7</span><input type="radio" name="Main1" value="7"></label>
+                <label class="option"><span>9</span><input type="radio" name="Main1" value="9"></label>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="label-container">
+                <span class="left-label def-link" onclick="openModal('Consumer Adaptation')">Consumer Adaptation</span>
+                <span class="right-label def-link" onclick="openModal('Consumer Experience')">Consumer Experience</span>
+            </div>
+            <div class="scale-grid">
+                <label class="option"><span>9</span><input type="radio" name="Main2" value="-9" required></label>
+                <label class="option"><span>7</span><input type="radio" name="Main2" value="-7"></label>
+                <label class="option"><span>5</span><input type="radio" name="Main2" value="-5"></label>
+                <label class="option"><span>3</span><input type="radio" name="Main2" value="-3"></label>
+                <label class="option"><span class="center-mark">1</span><input type="radio" name="Main2" value="0"></label>
+                <label class="option"><span>3</span><input type="radio" name="Main2" value="3"></label>
+                <label class="option"><span>5</span><input type="radio" name="Main2" value="5"></label>
+                <label class="option"><span>7</span><input type="radio" name="Main2" value="7"></label>
+                <label class="option"><span>9</span><input type="radio" name="Main2" value="9"></label>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="label-container">
+                <span class="left-label def-link" onclick="openModal('Consumer Engagement')">Consumer Engagement</span>
+                <span class="right-label def-link" onclick="openModal('Consumer Experience')">Consumer Experience</span>
+            </div>
+            <div class="scale-grid">
+                <label class="option"><span>9</span><input type="radio" name="Main3" value="-9" required></label>
+                <label class="option"><span>7</span><input type="radio" name="Main3" value="-7"></label>
+                <label class="option"><span>5</span><input type="radio" name="Main3" value="-5"></label>
+                <label class="option"><span>3</span><input type="radio" name="Main3" value="-3"></label>
+                <label class="option"><span class="center-mark">1</span><input type="radio" name="Main3" value="0"></label>
+                <label class="option"><span>3</span><input type="radio" name="Main3" value="3"></label>
+                <label class="option"><span>5</span><input type="radio" name="Main3" value="5"></label>
+                <label class="option"><span>7</span><input type="radio" name="Main3" value="7"></label>
+                <label class="option"><span>9</span><input type="radio" name="Main3" value="9"></label>
+            </div>
+        </div>
+
+        <h2>2. Sub-Criteria: Adaptation</h2>
+        <p style="font-size: 0.85rem; color: #64748b; margin-top: -10px; margin-bottom: 20px;">These factors explain why a consumer changes their lifestyle.</p>
+
+        <div class="comparison-row">
+            <div class="label-container">
+                <span class="left-label def-link" onclick="openModal('De-institutionalization')">De-institutionalization</span>
+                <span class="right-label def-link" onclick="openModal('Contextual Integration')">Contextual Integration</span>
+            </div>
+            <div class="scale-grid">
+                <label class="option"><span>9</span><input type="radio" name="Adapt1" value="-9" required></label>
+                <label class="option"><span>7</span><input type="radio" name="Adapt1" value="-7"></label>
+                <label class="option"><span>5</span><input type="radio" name="Adapt1" value="-5"></label>
+                <label class="option"><span>3</span><input type="radio" name="Adapt1" value="-3"></label>
+                <label class="option"><span class="center-mark">1</span><input type="radio" name="Adapt1" value="0"></label>
+                <label class="option"><span>3</span><input type="radio" name="Adapt1" value="3"></label>
+                <label class="option"><span>5</span><input type="radio" name="Adapt1" value="5"></label>
+                <label class="option"><span>7</span><input type="radio" name="Adapt1" value="7"></label>
+                <label class="option"><span>9</span><input type="radio" name="Adapt1" value="9"></label>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="label-container">
+                <span class="left-label def-link" onclick="openModal('De-institutionalization')">De-institutionalization</span>
+                <span class="right-label def-link" onclick="openModal('Institutional Inertia')">Institutional Inertia</span>
+            </div>
+            <div class="scale-grid">
+                <label class="option"><span>9</span><input type="radio" name="Adapt2" value="-9" required></label>
+                <label class="option"><span>7</span><input type="radio" name="Adapt2" value="-7"></label>
+                <label class="option"><span>5</span><input type="radio" name="Adapt2" value="-5"></label>
+                <label class="option"><span>3</span><input type="radio" name="Adapt2" value="-3"></label>
+                <label class="option"><span class="center-mark">1</span><input type="radio" name="Adapt2" value="0"></label>
+                <label class="option"><span>3</span><input type="radio" name="Adapt2" value="3"></label>
+                <label class="option"><span>5</span><input type="radio" name="Adapt2" value="5"></label>
+                <label class="option"><span>7</span><input type="radio" name="Adapt2" value="7"></label>
+                <label class="option"><span>9</span><input type="radio" name="Adapt2" value="9"></label>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="label-container">
+                <span class="left-label def-link" onclick="openModal('De-institutionalization')">De-institutionalization</span>
+                <span class="right-label def-link" onclick="openModal('Social Alignment')">Social Alignment</span>
+            </div>
+            <div class="scale-grid">
+                <label class="option"><span>9</span><input type="radio" name="Adapt3" value="-9" required></label>
+                <label class="option"><span>7</span><input type="radio" name="Adapt3" value="-7"></label>
+                <label class="option"><span>5</span><input type="radio" name="Adapt3" value="-5"></label>
+                <label class="option"><span>3</span><input type="radio" name="Adapt3" value="-3"></label>
+                <label class="option"><span class="center-mark">1</span><input type="radio" name="Adapt3" value="0"></label>
+                <label class="option"><span>3</span><input type="radio" name="Adapt3" value="3"></label>
+                <label class="option"><span>5</span><input type="radio" name="Adapt3" value="5"></label>
+                <label class="option"><span>7</span><input type="radio" name="Adapt3" value="7"></label>
+                <label class="option"><span>9</span><input type="radio" name="Adapt3" value="9"></label>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="label-container">
+                <span class="left-label def-link" onclick="openModal('Contextual Integration')">Contextual Integration</span>
+                <span class="right-label def-link" onclick="openModal('Institutional Inertia')">Institutional Inertia</span>
+            </div>
+            <div class="scale-grid">
+                <label class="option"><span>9</span><input type="radio" name="Adapt4" value="-9" required></label>
+                <label class="option"><span>7</span><input type="radio" name="Adapt4" value="-7"></label>
+                <label class="option"><span>5</span><input type="radio" name="Adapt4" value="-5"></label>
+                <label class="option"><span>3</span><input type="radio" name="Adapt4" value="-3"></label>
+                <label class="option"><span class="center-mark">1</span><input type="radio" name="Adapt4" value="0"></label>
+                <label class="option"><span>3</span><input type="radio" name="Adapt4" value="3"></label>
+                <label class="option"><span>5</span><input type="radio" name="Adapt4" value="5"></label>
+                <label class="option"><span>7</span><input type="radio" name="Adapt4" value="7"></label>
+                <label class="option"><span>9</span><input type="radio" name="Adapt4" value="9"></label>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="label-container">
+                <span class="left-label def-link" onclick="openModal('Contextual Integration')">Contextual Integration</span>
+                <span class="right-label def-link" onclick="openModal('Social Alignment')">Social Alignment</span>
+            </div>
+            <div class="scale-grid">
+                <label class="option"><span>9</span><input type="radio" name="Adapt5" value="-9" required></label>
+                <label class="option"><span>7</span><input type="radio" name="Adapt5" value="-7"></label>
+                <label class="option"><span>5</span><input type="radio" name="Adapt5" value="-5"></label>
+                <label class="option"><span>3</span><input type="radio" name="Adapt5" value="-3"></label>
+                <label class="option"><span class="center-mark">1</span><input type="radio" name="Adapt5" value="0"></label>
+                <label class="option"><span>3</span><input type="radio" name="Adapt5" value="3"></label>
+                <label class="option"><span>5</span><input type="radio" name="Adapt5" value="5"></label>
+                <label class="option"><span>7</span><input type="radio" name="Adapt5" value="7"></label>
+                <label class="option"><span>9</span><input type="radio" name="Adapt5" value="9"></label>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="label-container">
+                <span class="left-label def-link" onclick="openModal('Institutional Inertia')">Institutional Inertia</span>
+                <span class="right-label def-link" onclick="openModal('Social Alignment')">Social Alignment</span>
+            </div>
+            <div class="scale-grid">
+                <label class="option"><span>9</span><input type="radio" name="Adapt6" value="-9" required></label>
+                <label class="option"><span>7</span><input type="radio" name="Adapt6" value="-7"></label>
+                <label class="option"><span>5</span><input type="radio" name="Adapt6" value="-5"></label>
+                <label class="option"><span>3</span><input type="radio" name="Adapt6" value="-3"></label>
+                <label class="option"><span class="center-mark">1</span><input type="radio" name="Adapt6" value="0"></label>
+                <label class="option"><span>3</span><input type="radio" name="Adapt6" value="3"></label>
+                <label class="option"><span>5</span><input type="radio" name="Adapt6" value="5"></label>
+                <label class="option"><span>7</span><input type="radio" name="Adapt6" value="7"></label>
+                <label class="option"><span>9</span><input type="radio" name="Adapt6" value="9"></label>
+            </div>
+        </div>
+
+        <h2>3. Sub-Criteria: Engagement</h2>
+        <p style="font-size: 0.85rem; color: #64748b; margin-top: -10px; margin-bottom: 20px;">These factors explain how the consumer interacts with the app.</p>
+
+        <div class="comparison-row">
+            <div class="label-container">
+                <span class="left-label def-link" onclick="openModal('Cognitive Integration')">Cognitive Integration</span>
+                <span class="right-label def-link" onclick="openModal('Economic Value Co-creation')">Economic Value Co-creation</span>
+            </div>
+            <div class="scale-grid">
+                <label class="option"><span>9</span><input type="radio" name="Eng1" value="-9" required></label>
+                <label class="option"><span>7</span><input type="radio" name="Eng1" value="-7"></label>
+                <label class="option"><span>5</span><input type="radio" name="Eng1" value="-5"></label>
+                <label class="option"><span>3</span><input type="radio" name="Eng1" value="-3"></label>
+                <label class="option"><span class="center-mark">1</span><input type="radio" name="Eng1" value="0"></label>
+                <label class="option"><span>3</span><input type="radio" name="Eng1" value="3"></label>
+                <label class="option"><span>5</span><input type="radio" name="Eng1" value="5"></label>
+                <label class="option"><span>7</span><input type="radio" name="Eng1" value="7"></label>
+                <label class="option"><span>9</span><input type="radio" name="Eng1" value="9"></label>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="label-container">
+                <span class="left-label def-link" onclick="openModal('Cognitive Integration')">Cognitive Integration</span>
+                <span class="right-label def-link" onclick="openModal('Habitual Integration')">Habitual Integration</span>
+            </div>
+            <div class="scale-grid">
+                <label class="option"><span>9</span><input type="radio" name="Eng2" value="-9" required></label>
+                <label class="option"><span>7</span><input type="radio" name="Eng2" value="-7"></label>
+                <label class="option"><span>5</span><input type="radio" name="Eng2" value="-5"></label>
+                <label class="option"><span>3</span><input type="radio" name="Eng2" value="-3"></label>
+                <label class="option"><span class="center-mark">1</span><input type="radio" name="Eng2" value="0"></label>
+                <label class="option"><span>3</span><input type="radio" name="Eng2" value="3"></label>
+                <label class="option"><span>5</span><input type="radio" name="Eng2" value="5"></label>
+                <label class="option"><span>7</span><input type="radio" name="Eng2" value="7"></label>
+                <label class="option"><span>9</span><input type="radio" name="Eng2" value="9"></label>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="label-container">
+                <span class="left-label def-link" onclick="openModal('Cognitive Integration')">Cognitive Integration</span>
+                <span class="right-label def-link" onclick="openModal('Technological Integration')">Technological Integration</span>
+            </div>
+            <div class="scale-grid">
+                <label class="option"><span>9</span><input type="radio" name="Eng3" value="-9" required></label>
+                <label class="option"><span>7</span><input type="radio" name="Eng3" value="-7"></label>
+                <label class="option"><span>5</span><input type="radio" name="Eng3" value="-5"></label>
+                <label class="option"><span>3</span><input type="radio" name="Eng3" value="-3"></label>
+                <label class="option"><span class="center-mark">1</span><input type="radio" name="Eng3" value="0"></label>
+                <label class="option"><span>3</span><input type="radio" name="Eng3" value="3"></label>
+                <label class="option"><span>5</span><input type="radio" name="Eng3" value="5"></label>
+                <label class="option"><span>7</span><input type="radio" name="Eng3" value="7"></label>
+                <label class="option"><span>9</span><input type="radio" name="Eng3" value="9"></label>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="label-container">
+                <span class="left-label def-link" onclick="openModal('Economic Value Co-creation')">Economic Value Co-creation</span>
+                <span class="right-label def-link" onclick="openModal('Habitual Integration')">Habitual Integration</span>
+            </div>
+            <div class="scale-grid">
+                <label class="option"><span>9</span><input type="radio" name="Eng4" value="-9" required></label>
+                <label class="option"><span>7</span><input type="radio" name="Eng4" value="-7"></label>
+                <label class="option"><span>5</span><input type="radio" name="Eng4" value="-5"></label>
+                <label class="option"><span>3</span><input type="radio" name="Eng4" value="-3"></label>
+                <label class="option"><span class="center-mark">1</span><input type="radio" name="Eng4" value="0"></label>
+                <label class="option"><span>3</span><input type="radio" name="Eng4" value="3"></label>
+                <label class="option"><span>5</span><input type="radio" name="Eng4" value="5"></label>
+                <label class="option"><span>7</span><input type="radio" name="Eng4" value="7"></label>
+                <label class="option"><span>9</span><input type="radio" name="Eng4" value="9"></label>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="label-container">
+                <span class="left-label def-link" onclick="openModal('Economic Value Co-creation')">Economic Value Co-creation</span>
+                <span class="right-label def-link" onclick="openModal('Technological Integration')">Technological Integration</span>
+            </div>
+            <div class="scale-grid">
+                <label class="option"><span>9</span><input type="radio" name="Eng5" value="-9" required></label>
+                <label class="option"><span>7</span><input type="radio" name="Eng5" value="-7"></label>
+                <label class="option"><span>5</span><input type="radio" name="Eng5" value="-5"></label>
+                <label class="option"><span>3</span><input type="radio" name="Eng5" value="-3"></label>
+                <label class="option"><span class="center-mark">1</span><input type="radio" name="Eng5" value="0"></label>
+                <label class="option"><span>3</span><input type="radio" name="Eng5" value="3"></label>
+                <label class="option"><span>5</span><input type="radio" name="Eng5" value="5"></label>
+                <label class="option"><span>7</span><input type="radio" name="Eng5" value="7"></label>
+                <label class="option"><span>9</span><input type="radio" name="Eng5" value="9"></label>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="label-container">
+                <span class="left-label def-link" onclick="openModal('Habitual Integration')">Habitual Integration</span>
+                <span class="right-label def-link" onclick="openModal('Technological Integration')">Technological Integration</span>
+            </div>
+            <div class="scale-grid">
+                <label class="option"><span>9</span><input type="radio" name="Eng6" value="-9" required></label>
+                <label class="option"><span>7</span><input type="radio" name="Eng6" value="-7"></label>
+                <label class="option"><span>5</span><input type="radio" name="Eng6" value="-5"></label>
+                <label class="option"><span>3</span><input type="radio" name="Eng6" value="-3"></label>
+                <label class="option"><span class="center-mark">1</span><input type="radio" name="Eng6" value="0"></label>
+                <label class="option"><span>3</span><input type="radio" name="Eng6" value="3"></label>
+                <label class="option"><span>5</span><input type="radio" name="Eng6" value="5"></label>
+                <label class="option"><span>7</span><input type="radio" name="Eng6" value="7"></label>
+                <label class="option"><span>9</span><input type="radio" name="Eng6" value="9"></label>
+            </div>
+        </div>
+
+        <h2>4. Sub-Criteria: Experience</h2>
+        <p style="font-size: 0.85rem; color: #64748b; margin-top: -10px; margin-bottom: 20px;">These factors explain the value the consumer gets.</p>
+
+        <div class="comparison-row">
+            <div class="label-container">
+                <span class="left-label def-link" onclick="openModal('Service-for-Service Exchange')">Service-for-Service Exchange</span>
+                <span class="right-label def-link" onclick="openModal('Service Recovery')">Service Recovery</span>
+            </div>
+            <div class="scale-grid">
+                <label class="option"><span>9</span><input type="radio" name="Exp1" value="-9" required></label>
+                <label class="option"><span>7</span><input type="radio" name="Exp1" value="-7"></label>
+                <label class="option"><span>5</span><input type="radio" name="Exp1" value="-5"></label>
+                <label class="option"><span>3</span><input type="radio" name="Exp1" value="-3"></label>
+                <label class="option"><span class="center-mark">1</span><input type="radio" name="Exp1" value="0"></label>
+                <label class="option"><span>3</span><input type="radio" name="Exp1" value="3"></label>
+                <label class="option"><span>5</span><input type="radio" name="Exp1" value="5"></label>
+                <label class="option"><span>7</span><input type="radio" name="Exp1" value="7"></label>
+                <label class="option"><span>9</span><input type="radio" name="Exp1" value="9"></label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Submit Expert Review</button>
+    </form>
+</div>
+
+<div id="defModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h3 id="modal-title" style="color:var(--imi-maroon); border-bottom:1px solid #eee; padding-bottom:10px;">Definition</h3>
+        <p id="modal-text" style="font-size:0.95rem; color:#444; margin-top:15px;"></p>
+    </div>
+</div>
+
+<script>
+    const definitions = {
+        "Consumer Adaptation": "How much does Quick Commerce force the consumer to change their daily routine? This refers to the shift from planning weekly grocery trips to living a 'just-in-time' lifestyle where they keep an empty fridge and order only what they need, right now.",
+        "Consumer Engagement": "How much work and skill does the consumer put into using the app? This refers to the active effort of checking prices, hunting for coupons, using tracking tools, and 'gaming the system' to get the best deal, rather than just passively clicking 'buy.'",
+        "Consumer Experience": "How satisfying is the specific transaction moment? This focuses on the immediate relief of solving a crisis (e.g., 'I need milk now') and how fairly the company fixes things when orders go wrong (refunds/returns).",
+        "De-institutionalization": "The consumer stops doing the traditional 'Big Weekly Shop' and starts relying entirely on spontaneous, impulsive ordering.",
+        "Contextual Integration": "The consumer uses the app specifically because they can’t or don’t want to go out—due to bad weather, heavy traffic, living in a walk-up apartment, or feeling lazy.",
+        "Institutional Inertia": "The hesitation or worry a consumer feels because they cannot touch or check the quality of fresh products (like fruit/vegetables) before paying.",
+        "Social Alignment": "Using the app because of immediate family duties (e.g., 'The baby needs diapers now') or because using the app is seen as 'normal' or 'cool' by their friends.",
+        "Cognitive Integration": "The mental effort the consumer spends comparing different apps, reading product descriptions, and checking ratings to make sure they aren't making a mistake.",
+        "Economic Value Co-creation": "The active effort of manipulating the cart—like adding a small chocolate bar just to reach the 'Free Delivery' threshold or using specific coupon codes to save money.",
+        "Habitual Integration": "When the consumer shops on 'autopilot' without thinking, simply because they are so used to the app interface that it feels like a reflex.",
+        "Technological Integration": "The consumer maximizing the digital features provided, such as using the 'Reorder Last Order' button, 'Saved Lists,' or watching the live driver tracking map.",
+        "Service-for-Service Exchange": "The realization that the money paid isn't just for the product (e.g., the bread), but for the convenience and speed of having it delivered in 10 minutes.",
+        "Service Recovery": "How the consumer judges the brand based on what happens when things fail—specifically, how fast, fair, and easy it is to get a refund or replacement for a missing item."
+    };
+
+    function openModal(title) {
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-text').innerText = definitions[title] || "Definition not found.";
+        document.getElementById('defModal').style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById('defModal').style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('defModal')) {
+            closeModal();
+        }
+    }
+
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzhyooPugy-chnHRotPlbF0-OqnZ5_Qx8DnCtG7rBaFcirKAW1evAYas-bF2P1BZaa2/exec';
+    const form = document.getElementById('ahpForm');
+    
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = true;
+        btn.innerText = 'Submitting...';
+
+        fetch(SCRIPT_URL, { method: 'POST', body: new FormData(form)})
+            .then(res => {
+                alert('Success! Your responses have been recorded.');
+                location.reload();
+            })
+            .catch(err => {
+                alert('Error: ' + err.message);
+                btn.disabled = false;
+                btn.innerText = 'Submit Expert Review';
+            });
+    });
+</script>
+</body>
+</html>
